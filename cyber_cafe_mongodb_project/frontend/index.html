@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Cafe | Management Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">☁ Cyber<span>Cafe</span></div>
+    <nav>
+      <a class="active" href="#dashboard">Dashboard</a>
+      <a href="#customers">Customers</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#terminals">Terminals</a>
+    </nav>
+    <div class="sidebar-note">Smart workspace management</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">CONTROL CENTER</p>
+        <h1>Good evening 👋</h1>
+        <p class="muted">Manage your cyber cafe in one place.</p>
+      </div>
+      <button class="refresh" onclick="refreshAll()">↻ Refresh</button>
+    </header>
+
+    <section id="dashboard" class="stats">
+      <div class="stat"><span>Customers</span><strong id="totalCustomers">0</strong><small>Registered users</small></div>
+      <div class="stat"><span>Terminals</span><strong id="totalTerminals">0</strong><small>Total computers</small></div>
+      <div class="stat"><span>Available</span><strong id="availableTerminals">0</strong><small>Ready to use</small></div>
+      <div class="stat highlight"><span>Total revenue</span><strong id="totalRevenue">₹0</strong><small>Completed payments</small></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel" id="customers">
+        <div class="panel-head"><h2>Add customer</h2><span>NEW</span></div>
+        <form id="customerForm">
+          <input id="customerName" placeholder="Full name" required>
+          <input id="customerPhone" placeholder="Phone number">
+          <input id="customerEmail" type="email" placeholder="Email address">
+          <button>Add customer</button>
+        </form>
+      </div>
+
+      <div class="panel" id="sessions">
+        <div class="panel-head"><h2>Start session</h2><span>LIVE</span></div>
+        <form id="sessionForm">
+          <select id="customerSelect" required></select>
+          <select id="terminalSelect" required></select>
+          <select id="rateSelect" required></select>
+          <button>Start session</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>Active sessions</h2><span id="activeCount">0 ACTIVE</span></div>
+      <div id="activeSessions" class="session-list">Loading...</div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-head"><h2>Customers</h2></div>
+        <div id="customersTable"></div>
+      </div>
+      <div class="panel" id="terminals">
+        <div class="panel-head"><h2>Terminals</h2></div>
+        <div id="terminalsTable"></div>
+      </div>
+    </section>
+
+    <div id="message" class="message"></div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
